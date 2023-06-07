@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login.login_manager import LoginManager #added 
+
 
 db = SQLAlchemy()
 
