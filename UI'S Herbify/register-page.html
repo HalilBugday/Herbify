@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./register-page.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Register</title>
+</head>
+<body>
+  <script>
+   document.querySelector('a[href="login-page.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "login-page.html";
+    });
+
+    document.querySelector('a[href="identification-page.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "identification-page.html";
+    });
+  </script>
+  <nav class="navbar">
+    <ul>
+      <li><a href="profile-page.html" title="Achievement">👤</a></li>
+      <li><a href="#" title="Discover"><i class="fas fa-compass"></i></a></li>
+      <li><a href="Search-Groups.html" title="Search Groups"><i class="fas fa-search"></i></a></li>
+      <li><a href="Groups-page.html" title="Groups">👥</a></li>
+      <li><a href="identification-page.html" title="Identification">🌐</a></li>
+      <li><a href="login-page.html" title="Login">🔒</a></li>
+      <li class="active"><a href="register-page.html" title="Register">🔓</a></li>
+    </ul>
+  </nav>
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Register</h1>
+    <form class="register-page-form" name="registration_form" method="POST" action="register.php">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <button type="submit" class="register-page-button">Create Account</button>
+    </form>
+  </div>
+</body>
+</html>
+

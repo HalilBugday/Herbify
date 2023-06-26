@@ -1,0 +1,412 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("background_image.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 10px; /* Add padding to the right */
+}
+
+.navbar li.active a {
+  font-weight: bold;
+  background-color: rgba(0, 128, 0, 0.8); /* Green background with 50% transparency */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar li.active a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-color: #00cc00; /* Green color for the icon */
+  border-radius: 50%;
+}
+
+.login-page-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 250px;
+}
+
+.login-page-heading {
+  text-align: center;
+  color: #00cc00;
+  padding-top: 60px; /* Add padding from top */
+}
+
+.form-elements {
+  margin-top: 30px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.select-country-container {
+  display: flex;
+  align-items: center;
+  margin-right: 85px; /* Add right margin to create spacing */
+}
+
+.select-country-label {
+  display: flex;
+  align-items: center;
+}
+
+.select-country-image {
+  max-width: 80px; /* Adjust the size of the image */
+  margin-right: 5px; /* Add some spacing between the image and the text */
+}
+
+.search-group-container {
+  display: flex;
+  align-items: center;
+  margin-top: 100px; /* Add top margin to create distance */
+}
+
+.search-group-label {
+  margin-right: 10px; /* Add right margin for spacing */
+  white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.input-container {
+  flex: 1; /* Take up remaining space */
+}
+
+.select-country-container label {
+  display: block;
+  margin-bottom: -30px;
+}
+
+.search-group-container input {
+  width: 150px; /* Adjust the width based on the button width */
+  padding: 10px;
+  margin-right: 10px; /* Add right margin for spacing */
+  border: 4px solid #ccc;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+.select-country-container select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 4px solid #ccc;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+.search-group-container input:hover,
+.select-country-container select:hover {
+  border-color: #8bc34a;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: -10px; /* Move the button group to the left */
+}
+
+.login-page-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px; /* Add left margin for spacing */
+}
+
+.login-page-button.create-group-button {
+  margin-left: 100px;
+}
+
+.login-page-button:hover {
+  background-color: #33cc33;
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+/* Media Queries */
+
+/* Adjust styles for small mobile devices */
+@media screen and (max-width: 576px) {
+  .login-page-container {
+    padding: 50px;
+  }
+
+  .login-page-heading {
+    font-size: 20px;
+    padding-top: 30px; /* Adjust the padding for smaller screens */
+  }
+
+  .form-elements label {
+    font-size: 12px;
+  }
+
+  .form-elements input,
+  .form-elements select {
+    font-size: 12px;
+  }
+
+  .login-page-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .search-group-container {
+    margin-top: 50px; /* Adjust the margin for smaller screens */
+  }
+
+  .select-country-container {
+    margin-right: 10px; /* Adjust the margin for smaller screens */
+  }
+
+  .input-container {
+    flex: 0.6; /* Adjust the flex value for smaller screens */
+  }
+
+  .login-page-button.create-group-button {
+    margin-left: 10px; /* Adjust the margin for smaller screens */
+  }
+}
+
+/* Adjust styles for larger mobile devices and small tablets */
+
+/* Adjust styles for extra small screens */
+@media screen and (max-width: 320px) {
+  .login-page-container {
+    padding: 20px;
+  }
+
+  .login-page-heading {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+
+  .form-elements label {
+    font-size: 8px;
+  }
+
+  .form-elements input,
+  .form-elements select {
+    font-size: 8px;
+  }
+
+  .login-page-button {
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+
+  .search-group-container {
+    margin-top: 30px;
+  }
+
+  .select-country-container {
+    margin-right: 2px;
+  }
+
+  .input-container {
+    flex: 0.4;
+  }
+
+  .login-page-button.create-group-button {
+    margin-left: 2px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-page-container {
+    padding: 110px;
+  }
+
+  .login-page-heading {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+
+  .form-elements label {
+    font-size: 10px;
+  }
+
+  .form-elements input,
+  .form-elements select {
+    font-size: 10px;
+  }
+
+  .login-page-button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .search-group-container {
+    margin-top: 40px;
+  }
+  
+  .select-country-image {
+      max-width: 40px;
+      margin-bottom: 70px;
+  }
+  
+  #select-country{
+      margin-bottom: 50px;
+  }
+  
+  .select-country-container {
+    margin-right: -50px;
+  }
+
+  .input-container {
+    flex: 0.5;
+  }
+
+  .login-page-button.create-group-button {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .login-page-container {
+    max-width: 600px;
+  }
+
+  .login-page-heading {
+    font-size: 24px;
+    padding-top: 80px;
+  }
+
+  .form-elements label {
+    font-size: 14px;
+  }
+
+  .form-elements input,
+  .form-elements select {
+    font-size: 14px;
+  }
+
+  .login-page-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .search-group-container {
+    margin-top: 150px;
+  }
+
+  .select-country-container {
+    margin-right: 15px;
+  }
+
+  .input-container {
+    flex: 0.7;
+  }
+
+  .login-page-button.create-group-button {
+    margin-left: 15px;
+  }
+}
+
+/* Adjust styles for larger mobile devices and small tablets */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .login-page-container {
+    max-width: 90%;
+  }
+
+  .search-group-container {
+    margin-top: 80px; /* Adjust the margin for medium screens */
+  }
+}
+
+/* Adjust styles for tablets and small desktop screens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .login-page-container {
+    max-width: 700px;
+  }
+  
+  .search-group-container {
+    margin-top: 120px; /* Adjust the margin for larger screens */
+  }
+}
+
+/* Adjust styles for larger tablets and desktop screens */
+@media screen and (min-width: 1025px) {
+  .login-page-container {
+    max-width: 900px;
+    padding: 100px;
+  }
+
+  .login-page-heading {
+    font-size: 36px;
+    padding-top: 100px;
+  }
+
+  .form-elements label {
+    font-size: 16px;
+  }
+
+  .form-elements input,
+  .form-elements select {
+    font-size: 16px;
+  }
+
+  .login-page-button {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  .search-group-container {
+    margin-top: 200px;
+  }
+
+  .select-country-container {
+    margin-right: 20px;
+  }
+
+  .input-container {
+    flex: 0.8;
+  }
+
+  .login-page-button.create-group-button {
+    margin-left: 20px;
+  }
+}
+

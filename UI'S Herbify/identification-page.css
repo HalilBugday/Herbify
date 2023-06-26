@@ -1,0 +1,305 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("plant-identification.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: scroll;
+}
+
+.upload-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-left: 20px;
+  padding: 0 20px;
+}
+
+.upload-photo-text {
+  color: white;
+  font-size: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+.upload-photo-button {
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  background-color: green;
+  color: white;
+}
+
+.upload-photo-button:hover {
+  box-shadow: 0 0 30px green;
+}
+
+.upload-photo-form input[type="file"] {
+  margin-top: 80px;
+  background-color: green;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: white;
+}
+
+.upload-photo-form input[type="file"]:hover {
+  box-shadow: 0 0 30px green;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+.navbar li.active a {
+  background-color: rgba(0, 128, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar li.active a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-color: #00cc00;
+  border-radius: 50%;
+}
+
+.identification-page-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.identification-page-heading {
+  text-align: center;
+  color: #00cc00;
+  padding-top: 80px;
+}
+
+/* Media Queries */
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .upload-photo-container {
+    margin-left: 10px;
+    padding: 0 10px;
+  }
+
+  .upload-photo-text {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  .upload-photo-button {
+    margin: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 40px;
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .identification-page-container {
+    max-width: 100%;
+    padding: 50px;
+  }
+
+  .identification-page-heading {
+    font-size: 24px;
+    padding-top: 40px;
+  }
+}
+
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .upload-photo-container {
+    margin-left: 30px;
+    padding: 0 30px;
+  }
+
+  .upload-photo-text {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 90%;
+  }
+
+  .upload-photo-button {
+    margin: 20px;
+    padding: 16px 20px;
+    font-size: 15px;
+    margin-bottom: 80px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 60px;
+    padding: 14px 18px;
+    font-size: 13px;
+  }
+
+  .identification-page-container {
+    max-width: 500px;
+    padding: 70px;
+  }
+
+  .identification-page-heading {
+    font-size: 26px;
+    padding-top: 60px;
+  }
+}
+
+/* For small desktop screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .upload-photo-container {
+    margin-left: 50px;
+    padding: 0 50px;
+  }
+
+  .upload-photo-text {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 80%;
+  }
+
+  .upload-photo-button {
+    margin: 25px;
+    padding: 18px 22px;
+    font-size: 16px;
+    margin-bottom: 100px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 70px;
+    padding: 16px 20px;
+    font-size: 14px;
+  }
+
+  .identification-page-container {
+    max-width: 600px;
+    padding: 80px;
+  }
+
+  .identification-page-heading {
+    font-size: 28px;
+    padding-top: 70px;
+  }
+}
+
+/* For medium desktop screens */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .upload-photo-container {
+    margin-left: 80px;
+    padding: 0 80px;
+  }
+
+  .upload-photo-text {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 70%;
+  }
+
+  .upload-photo-button {
+    margin: 30px;
+    padding: 20px 24px;
+    font-size: 18px;
+    margin-bottom: 120px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 80px;
+    padding: 18px 22px;
+    font-size: 16px;
+  }
+
+  .identification-page-container {
+    max-width: 800px;
+    padding: 100px;
+  }
+
+  .identification-page-heading {
+    font-size: 30px;
+    padding-top: 90px;
+  }
+}
+
+/* For large desktop screens */
+@media (min-width: 1441px) {
+  .upload-photo-container {
+    margin-left: 120px;
+    padding: 0 120px;
+  }
+
+  .upload-photo-text {
+    font-size: 32px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 60%;
+  }
+
+  .upload-photo-button {
+    margin: 40px;
+    padding: 24px 28px;
+    font-size: 20px;
+    margin-bottom: 140px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 100px;
+    padding: 20px 24px;
+    font-size: 18px;
+  }
+
+  .identification-page-container {
+    max-width: 1000px;
+    padding: 120px;
+  }
+
+  .identification-page-heading {
+    font-size: 32px;
+    padding-top: 110px;
+  }
+}
+
