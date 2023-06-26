@@ -1,0 +1,148 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-image: url("background_image.webp");
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.navbar {
+background-color: #333;
+color: #fff;
+padding: 10px;
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+width: 100%;
+display: flex;
+justify-content: flex-end;
+}
+
+.navbar ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.navbar li {
+margin-right: 10px;
+display: inline-block;
+}
+
+.navbar li a {
+color: #fff;
+text-decoration: none;
+padding-right: 10px; /* Add padding to the right */
+}
+
+.navbar li.active a {
+font-weight: bold;
+background-color: rgba(0, 128, 0, 0.4); /* Green background with 40% transparency */
+border-radius: 50%;
+display: flex;
+align-items: center;
+padding: 5px;
+}
+
+.navbar li.active a:before {
+content: "";
+width: 20px;
+height: 20px;
+margin-right: 5px;
+background-color: #00cc00; /* Green color for the icon */
+border-radius: 50%;
+}
+
+.register-page-container {
+max-width: 400px;
+margin: 0 auto;
+padding: 100px;
+}
+
+.register-page-heading {
+text-align: center;
+padding-top: 50px; /* Add padding from the top */
+color: #00cc00;
+}
+
+.register-page-form {
+margin-top: 20px;
+}
+
+.register-page-form label {
+display: block;
+margin-bottom: 5px;
+}
+
+.register-page-form input {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border: 4px solid #ccc;
+transition: border-color 0.3s ease;
+box-shadow: 0 0 5px #8bc34a;
+}
+
+.register-page-form input:hover {
+border-color: #8bc34a;
+}
+
+.register-page-button {
+background-color: #000000;
+color: #fff;
+border: none;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+border-radius: 4px;
+}
+
+.register-page-button:hover {
+background-color: #33cc33;
+box-shadow: 0 0 5px #8bc34a;
+}
+
+/* Media Queries */
+
+/* for small mobile devices */
+@media screen and (max-width: 576px) {
+.register-page-container {
+padding: 50px;
+}
+
+.register-page-heading {
+font-size: 20px;
+}
+
+.register-page-form label {
+font-size: 12px;
+}
+
+.register-page-form input {
+font-size: 12px;
+}
+
+.register-page-button {
+padding: 6px 12px;
+font-size: 12px;
+}
+}
+
+/* for larger mobile devices and small tablets */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+.register-page-container {
+max-width: 90%;
+}
+}
+
+/* for tablets and small desktops */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+.register-page-container {
+max-width: 90%;
+}
+}

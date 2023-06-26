@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./Search-Groups.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Search Groups</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="profile-page.html" title="Profile">👤</a></li>
+      <li><a href="#" title="Discover"><i class="fas fa-compass"></i></a></li>
+      <li class="active"><a href="Search-Groups.html" title="Search Groups"><i class="fas fa-search"></i></a></li>
+      <li><a href="Groups-page.html" title="Groups">👥</a></li>
+      <li><a href="identification-page.html" title="Identification">🌐</a></li>
+      <li><a href="login-page.html" title="Login">🔒</a></li>
+      <li><a href="register-page.html" title="Register">🔓</a></li>
+    </ul>
+  </nav>
+  <div class="login-page-container">
+    <h1 class="login-page-heading">Create Group</h1>
+    <div class="form-elements">
+ <div class="form-row">
+  <div class="select-country-container">
+    <label for="select-country" class="select-country-label">
+      <img src="Select_Country_Image.png" alt="Select Country" class="select-country-image">
+    </label>
+    <select id="select-country" name="select-country">
+        <option value="" disabled selected>Select a country</option>
+		  <option value="Afghanistan">Afghanistan</option>
+		  <option value="Albania">Albania</option>
+		  <option value="Algeria">Algeria</option>
+		  <option value="Andorra">Andorra</option>
+		  <option value="Argentina">Argentina</option>
+		  <option value="Australia">Australia</option>
+		  <option value="Austria">Austria</option>
+		  <option value="Belgium">Belgium</option>
+		  <option value="Brazil">Brazil</option>
+		  <option value="Canada">Canada</option>
+		  <option value="China">China</option>
+		  <option value="Denmark">Denmark</option>
+		  <option value="Egypt">Egypt</option>
+		  <option value="France">France</option>
+		  <option value="Germany">Germany</option>
+		  <option value="Greece">Greece</option>
+		  <option value="India">India</option>
+		  <option value="Italy">Italy</option>
+		  <option value="Japan">Japan</option>
+		  <option value="Mexico">Mexico</option>
+		  <option value="Netherlands">Netherlands</option>
+		  <option value="Norway">Norway</option>
+		  <option value="Russia">Russia</option>
+		  <option value="South Africa">South Africa</option>
+		  <option value="South Korea">South Korea</option>
+		  <option value="Spain">Spain</option>
+		  <option value="Sweden">Sweden</option>
+		  <option value="Switzerland">Switzerland</option>
+		  <option value="United Kingdom">United Kingdom</option>
+		  <option value="United States">United States</option>
+		  <option value="Turkey">Turkey</option>
+    </select>
+  </div>
+          <div class="search-group-container">
+	  <label class="search-group-label" for="search-group">Search For Group:</label>
+	  <div class="input-container">
+	    <input type="text" id="search-group" name="search-group" placeholder="Enter group name">
+	  </div>
+	  <button class="login-page-button create-group-button">Create Group</button>
+	</div>
+    </div>
+  </div>
+</body>
+</html>
+

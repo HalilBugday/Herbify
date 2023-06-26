@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./login-page.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Login</title>
+  <script>
+   function redirectToRegisterPage() {
+        window.location.href = "register-page.html";     
+   }
+  
+   document.querySelector('a[href="register-page.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "register-page.html";
+    });
+
+    document.querySelector('a[href="identification-page.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "identification-page.html";
+    });
+   
+   document.querySelector('a[href="profile-page.html"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "profile-page.html";
+    });
+      
+  </script>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="profile-page.html" title="Profile">👤</a></li>
+      <li><a href="#" title="Discover"><i class="fas fa-compass"></i></a></li>
+      <li><a href="Search-Groups.html" title="Search Groups"><i class="fas fa-search"></i></a></li>
+      <li><a href="Groups-page.html" title="Groups">👥</a></li>
+      <li><a href="identification-page.html" title="Identification">🌐</a></li>
+      <li class="active"><a href="login-page.html" title="Login">🔒</a></li>
+      <li><a href="register-page.html" title="Register">🔓</a></li>
+    </ul>
+  </nav>
+  <div class="login-page-container">
+    <h1 class="login-page-heading">Login</h1>
+    <form class="login-page-form" name="login_form" method="POST" action="login.php">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <div class="button-group">
+        <button type="submit" class="login-page-button login-button">Login</button>
+      </div>
+
+      <div class="additional-buttons">
+        <button type="button" class="login-page-button">Forgot Password</button>
+        <button type="button" class="login-page-button" onclick="redirectToRegisterPage()">Create Account</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
