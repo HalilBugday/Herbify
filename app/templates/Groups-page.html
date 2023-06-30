@@ -16,29 +16,41 @@
   <body>
     <nav class="navbar">
       <ul>
-        <li><a href="{{ url_for('auth.profile') }}" title="Profile">👤</a></li>
-        <li>
-          <a href="#" title="Discover"><i class="fas fa-compass"></i></a>
-        </li>
-        <li>
-          <a href="{{ url_for('auth.search') }}" title="Search Groups"
-            ><i class="fas fa-search"></i
-          ></a>
-        </li>
-        <li class="active">
-          <a href="{{ url_for('auth.groups') }}" title="Groups">👥</a>
-        </li>
-        <li>
-          <a href="{{ url_for('auth.identification') }}" title="Identification"
-            >🌐</a
-          >
-        </li>
-        <li><a href="{{ url_for('auth.login') }}" title="Login">🔒</a></li>
-        <li>
-          <a href="{{ url_for('auth.register') }}" title="Register">🔓</a>
-        </li>
-      </ul>
-    </nav>
+      <div class="container">
+
+          <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+
+                  <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                  <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+
+                  <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                  {% if current_user.is_authenticated %}
+                  <li>
+                    <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                  {% endif %}
+
+                  <li class="active"><a href="#" title="Groups" class="navbar-item">👥</a></li>
+                  <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+
+                  {% if not current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                  <li><a href="{{ url_for('auth.signup') }}" class="navbar-item">🔓</a></li>
+
+
+                  {% endif %}
+                  {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                  {% endif %}
+
+              </div>
+          </div>
+      </div>
+      <ul>
+  </nav>
     <div class="login-page-container">
       <h1 class="login-page-heading">Create Group</h1>
       <form

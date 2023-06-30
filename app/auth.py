@@ -52,7 +52,7 @@ def login_post():
 
 @auth.route('/signup')
 def signup():
-    return render_template('login-page.html')
+    return render_template('register-page.html')
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
@@ -83,3 +83,4 @@ def signup_post():
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
+

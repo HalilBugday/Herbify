@@ -8,7 +8,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/classification')
 def classification():
-    return render_template('classification.html')
+    return render_template('identification-page.html')
 
 @views.route('/predict', methods=['POST'])
 def predict():
@@ -35,4 +35,4 @@ def predict():
             prediction = model.predict(img_array)
             predicted_class = class_names[np.argmax(prediction)]
 
-            return render_template('prediction_results.html', image_path=image_path, predicted_class=image_path)
+            return render_template('prediction_results.html', image_path=image_path, predicted_class=predicted_class)

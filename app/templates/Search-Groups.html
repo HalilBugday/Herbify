@@ -11,17 +11,43 @@
   <title>Herbify-Search Groups</title>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="profile-page.html" title="Profile">👤</a></li>
-      <li><a href="#" title="Discover"><i class="fas fa-compass"></i></a></li>
-      <li class="active"><a href="Search-Groups.html" title="Search Groups"><i class="fas fa-search"></i></a></li>
-      <li><a href="Groups-page.html" title="Groups">👥</a></li>
-      <li><a href="identification-page.html" title="Identification">🌐</a></li>
-      <li><a href="login-page.html" title="Login">🔒</a></li>
-      <li><a href="register-page.html" title="Register">🔓</a></li>
-    </ul>
-  </nav>
+	<nav class="navbar">
+		<ul>
+		<div class="container">
+  
+			<div id="navbarMenuHeroA" class="navbar-menu">
+				<div class="navbar-end">
+  
+					<li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+  
+					<li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+  
+					<li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+  
+					{% if current_user.is_authenticated %}
+					<li>
+					  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+					{% endif %}
+  
+					<li class="active"><a href="#" title="Groups" class="navbar-item">👥</a></li>
+					<li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+  
+					{% if not current_user.is_authenticated %}
+					<li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+  
+					<li><a href="{{ url_for('auth.signup') }}" class="navbar-item">🔓</a></li>
+  
+  
+					{% endif %}
+					{% if current_user.is_authenticated %}
+					<li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+					{% endif %}
+  
+				</div>
+			</div>
+		</div>
+		<ul>
+	</nav>
   <div class="login-page-container">
     <h1 class="login-page-heading">Create Group</h1>
     <div class="form-elements">
