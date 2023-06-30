@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./Groups.css" rel="stylesheet" />
+   <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/Groups-page.css') }}"
+    />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <title>Herbify-Create Group</title>
 </head>
 <body>
   <nav class="navbar">
     <ul>
-      <li><a href="profile-page.html" title="Profile">👤</a></li>
+      <li><a href="{{ url_for('auth.profile') }}" title="Profile">👤</a></li>
       <li><a href="#" title="Discover"><i class="fas fa-compass"></i></a></li>
-      <li><a href="Search-Groups.html" title="Search Groups"><i class="fas fa-search"></i></a></li>
-      <li class="active"><a href="Groups-page.html" title="Groups">👥</a></li>
-      <li><a href="identification-page.html" title="Identification">🌐</a></li>
-      <li><a href="login-page.html" title="Login">🔒</a></li>
-      <li><a href="register-page.html" title="Register">🔓</a></li>
+      <li><a href="{{ url_for('auth.search') }}" title="Search Groups"><i class="fas fa-search"></i></a></li>
+      <li class="active"><a href="{{ url_for('auth.groups') }}"title="Groups">👥</a></li>
+      <li><a href="{{ url_for('auth.identification') }}" title="Identification">🌐</a></li>
+      <li><a href="{{ url_for('auth.login') }}"  title="Login">🔒</a></li>
+      <li><a href="{{ url_for('auth.register') }}" title="Register">🔓</a></li>
     </ul>
   </nav>
   <div class="login-page-container">

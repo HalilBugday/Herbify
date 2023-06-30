@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/identification-page.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Herbify-Identification</title>
+  </head>
+  <body>
+    <script>
+      document
+        .querySelector('a[href="register-page.html"]')
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "register-page.html";
+        });
+
+      document
+        .querySelector('a[href="login-page.html"]')
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "login-page.html";
+        });
+
+      document
+        .querySelector('a[href="identification-page.html"]')
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "identification-page.html";
+        });
+    </script>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{{ url_for('auth.profile') }}" title="Profile">👤</a></li>
+        <li>
+          <a href="#" title="Discover"><i class="fas fa-compass"></i></a>
+        </li>
+        <li>
+          <a href="{{ url_for('auth.search') }}" title="Search Groups"
+            ><i class="fas fa-search"></i
+          ></a>
+        </li>
+        <li><a href="{{ url_for('auth.groups') }}" title="Groups">👥</a></li>
+        <li class="active">
+          <a href="{{ url_for('auth.identification') }}" title="Identification"
+            >🌐</a
+          >
+        </li>
+        <li><a href="{{ url_for('auth.login') }}" title="Login">🔒</a></li>
+        <li>
+          <a href="{{ url_for('auth.register') }}" title="Register">🔓</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="identification-page-container">
+      <h1 class="identification-page-heading">Plant Identification</h1>
+      <div class="upload-photo-container">
+        <p class="upload-photo-text">Prediction Result</p>
+        <img
+          src="{{image_path}}"
+          alt="Predicated plant's image"
+          width="300"
+          height="300"
+        />
+        <p>Predicted plant class: {{ predicted_class }}</p>
+        <a href="{{ url_for('auth.identification') }}"
+          ><button type="submit" class="upload-photo-button">
+            Identify Another Plant
+          </button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

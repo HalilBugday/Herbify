@@ -6,6 +6,31 @@ from . import db
 
 auth = Blueprint('auth', __name__)
 
+
+@auth.route("/profile")
+def profile():
+    return render_template("profile-page.html")
+
+@auth.route("/discover")
+def discover():
+    return render_template("discover-page.html")
+
+@auth.route("/search")
+def search():
+    return render_template("Search-Groups.html")
+
+@auth.route("/groups")
+def groups():
+    return render_template("Groups-page.html")
+
+@auth.route("/identification")
+def identification():
+    return render_template("identification-page.html")
+
+@auth.route("/register")
+def register():
+    return render_template("register-page.html")
+
 @auth.route('/login')
 def login():
     return render_template('login-page.html')
@@ -27,20 +52,25 @@ def login_post():
 
 @auth.route('/signup')
 def signup():
-    return render_template('signup.html')
+    return render_template('login-page.html')
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
+    confirm_password = request.form.get("confirm-password")
 
     user = User.query.filter_by(email=email).first()
 
     if user:
         flash('Email address already exists.')
-        return redirect(url_for('auth.signup'))
-
+        return redirect(url_for('auth.register'))
+    
+    if password != confirm_password:
+       flash("Confirmation password does not mactch with password.")
+       return redirect(url_for('auth.register'))
+    
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
 
     db.session.add(new_user)

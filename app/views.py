@@ -17,6 +17,7 @@ def predict():
         image_file = request.files['image']
         if image_file:
             image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], image_file.filename)
+            print("IMAGE PATH IS AS FOLLOWS!!:", image_path)
             image_file.save(image_path)
 
             # Görüntüyü yükle ve yeniden boyutlandır
@@ -34,4 +35,4 @@ def predict():
             prediction = model.predict(img_array)
             predicted_class = class_names[np.argmax(prediction)]
 
-            return render_template('result.html', image_path=image_path, predicted_class=predicted_class)
+            return render_template('prediction_results.html', image_path=image_path, predicted_class=image_path)
