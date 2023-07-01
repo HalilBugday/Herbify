@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/main-page.css') }}"
+    />
+  <title>Home</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li class="active"><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href="#" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup" >🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="identification-page-container">
+    <h1 class="identification-page-heading">Welcome to Herbify</h1>
+    <div class="upload-photo-container ">
+      <div class="upload-photo-text"  style="color:black">
+       Welcome to Herbify, Herbify is your friendly tool for discovering plant types you may not know or let you learn more information related to plant types that you already know. You can also join groups and discover different plants
+      </div>
+      <div class="upload-photo-text2"  style="color:black">
+        together, You can showcase the plants that you have already identified in your profile. Add friends, share your explorations with others and let the plant knowledge base grow. Try out identification by clicking the button on the right!!
+      </div>
+
+      <a href="{{ url_for('views.classification') }}"
+          ><button type="submit" class="try-identification-button">
+            Try out identification
+          </button></a
+        >
+    </div>
+  </div>
+</body>
+</html>
+

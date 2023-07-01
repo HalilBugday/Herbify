@@ -29,7 +29,8 @@ def predict():
             model_path = os.path.join(current_app.root_path, 'modelVersion1.h5')
             model = load_model(model_path)
 
-            class_names = ['daisy-papatya', 'dandelion-karahindiba', 'rose-gül', 'sunflower-ayçiçeği']
+            class_names = ['Daisy-papatya. Bu bir papatyadır ve familyası...', 'dandelion-karahindiba. bu bir karahindibadır ve familyası..', 
+                           'rose-gül. Bu bir güldü ve familyası...', 'sunflower-ayçiçeği. Bu bir ayçiçeğidir ve familyası...']
 
             # Tahmin yap
             prediction = model.predict(img_array)
