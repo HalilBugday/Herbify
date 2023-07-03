@@ -49,7 +49,7 @@
 
                   <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
 
-                  <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+                  <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
 
                   <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
 
@@ -58,7 +58,7 @@
                     <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
                   {% endif %}
 
-                  <li><a href="#" title="Groups" class="navbar-item">👥</a></li>
+                  <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
                   <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
 
                   {% if not current_user.is_authenticated %}

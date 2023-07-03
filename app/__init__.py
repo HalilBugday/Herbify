@@ -10,7 +10,9 @@ def create_app():
 
     app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-    app.config['UPLOAD_FOLDER'] = 'app/static'
+
+    app.config['UPLOAD_FOLDER'] = 'static'
+  
 
     db.init_app(app)
 

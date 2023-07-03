@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <h1>Groups</h1>
+  <ul>
+    {% for group in groups %}
+      <li>
+        <a href="{{ url_for('auth.group_profile', group_id=group.id) }}">{{ group.group_name }}</a>
+      </li>
+      <form action="{{ url_for('auth.view_groups') }}" method="POST">
+        <input type="hidden" name="group_id" value="{{ group.id }}">
+        <button type="submit">Join Group</button>
+      </form>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('auth.create_group') }}" class="btn btn-primary">Create Group</a>
+{% endblock %}

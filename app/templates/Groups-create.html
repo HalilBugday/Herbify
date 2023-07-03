@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/Groups.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Herbify-Create Group</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+      <div class="container">
+
+          <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+
+                  <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                  <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+
+                  <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                  {% if current_user.is_authenticated %}
+                  <li>
+                    <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                  {% endif %}
+
+                  <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                  <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+
+                  {% if not current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                  <li><a href="{{ url_for('auth.signup') }}" class="navbar-item">🔓</a></li>
+
+
+                  {% endif %}
+                  {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                  {% endif %}
+
+              </div>
+          </div>
+      </div>
+      <ul>
+  </nav>
+    <div class="login-page-container">
+      <h1 class="login-page-heading">Create Group</h1>
+      <form
+        class="login-page-form"
+        name="login_form"
+        method="POST"
+        action="{{ url_for('auth.create_group') }}"
+      >
+        <label for="group-name">Group Name:</label>
+        <input type="text" id="group-name" name="group-name" required />
+
+        <label for="group-description">Group Description:</label>
+        <input
+          type="text"
+          id="group-description"
+          name="group-description"
+          required
+        />
+
+        <label for="select-country" class="select-country-label">
+          <img
+            src="Select_Country_Image.png"
+            alt="Select Country"
+            class="select-country-image"
+          />
+        </label>
+        <select id="select-country" name="select-country">
+          <option value="" disabled selected>Select a country</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Andorra">Andorra</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Canada">Canada</option>
+          <option value="China">China</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Egypt">Egypt</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Greece">Greece</option>
+          <option value="India">India</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="Norway">Norway</option>
+          <option value="Russia">Russia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="South Korea">South Korea</option>
+          <option value="Spain">Spain</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+          <option value="Turkey">Turkey</option>
+        </select>
+
+        <div class="button-group">
+          <button type="submit" class="login-page-button login-button">
+            Create Group
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

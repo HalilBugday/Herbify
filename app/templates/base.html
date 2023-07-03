@@ -28,6 +28,13 @@
                             <a href="{{ url_for('main.profile') }}" class="navbar-item">
                                 Profile
                             </a>
+							<a href="{{ url_for('auth.view_groups') }}" class="navbar-item">
+                                Groups
+                            </a>
+							<a href="{{ url_for('auth.achievements') }}" class="navbar-item">
+                                Achievements
+                            </a>
+
                             {% endif %}
                             {% if not current_user.is_authenticated %}
                             <a href="{{ url_for('auth.login') }}" class="navbar-item">

@@ -14,3 +14,6 @@ def index():
 def profile():
     return render_template('profile-page.html', name=current_user.name)
 
+@main.route('/discover')
+def discover():
+    return render_template('discover-page.html')

@@ -15,16 +15,19 @@
   <title>Home</title>
 </head>
 <body>
+
   <nav class="navbar">
+    
     <ul>
     <div class="container">
-
+     
         <div id="navbarMenuHeroA" class="navbar-menu">
+          
             <div class="navbar-end">
 
                 <li class="active"><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
 
-                <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+                <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
 
                 <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
 
@@ -33,7 +36,7 @@
                   <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
                 {% endif %}
 
-                <li><a href="#" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
                 <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
 
                 {% if not current_user.is_authenticated %}
@@ -56,10 +59,10 @@
   <div class="identification-page-container">
     <h1 class="identification-page-heading">Welcome to Herbify</h1>
     <div class="upload-photo-container ">
-      <div class="upload-photo-text"  style="color:black">
+      <div class="upload-photo-text"  style="color:white">
        Welcome to Herbify, Herbify is your friendly tool for discovering plant types you may not know or let you learn more information related to plant types that you already know. You can also join groups and discover different plants
       </div>
-      <div class="upload-photo-text2"  style="color:black">
+      <div class="upload-photo-text2"  style="color:white">
         together, You can showcase the plants that you have already identified in your profile. Add friends, share your explorations with others and let the plant knowledge base grow. Try out identification by clicking the button on the right!!
       </div>
 
