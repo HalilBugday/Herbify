@@ -63,7 +63,7 @@
                 <ul class="care-plan-list">
                     {% for care_plan in plant.care_plans %}
                         <li class="care-plan-item">
-                            <span class="water-amount">{{ care_plan.water_amount }} cl</span> of water every day, fertilize <span class="fertilize-interval">{{ care_plan.fertilize_interval }}</span>
+                            <span class="water-amount">{{ care_plan.plan_name }} : {{ care_plan.water_amount }} cl</span> of water every day, fertilize <span class="fertilize-interval">{{ care_plan.fertilize_interval }}</span>
                         </li>
                     {% endfor %}
                 </ul>

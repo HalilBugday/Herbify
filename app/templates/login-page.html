@@ -59,7 +59,7 @@
                   {% endif %}
 
                   <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
-                  <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+                  <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
 
                   {% if not current_user.is_authenticated %}
                   <li class="active"><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>

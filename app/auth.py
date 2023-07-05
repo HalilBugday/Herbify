@@ -42,6 +42,7 @@ def search():
     return render_template("Search-Groups.html")
 
 @auth.route('/groups', methods=['GET', 'POST'])
+@login_required
 def view_groups():
     if request.method == 'POST':
         group_id = request.form.get('group_id')
@@ -58,7 +59,7 @@ def view_groups():
             flash('Group does not exist.')
 
     groups = groups_table.query.all()
-    return render_template('groups.html', groups=groups)
+    return render_template('Groups-view.html', groups=groups)
 
 @auth.route('/groups/create', methods=['GET', 'POST'])
 @login_required
@@ -147,6 +148,7 @@ def add_care_plan(plant_id):
         return redirect(url_for('auth.my_plants'))
 
     if request.method == 'POST':
+        plan_name = request.form.get('plan_name')
         light = request.form.get('light')
         last_watered = request.form.get('last_watered')
         pot_height = float(request.form.get('pot_height'))
@@ -175,7 +177,7 @@ def add_care_plan(plant_id):
             fertilize_interval = "every 2 days"
 
         # Create and store the care plan in the database
-        care_plan = CarePlan(plant_id=plant.id, water_amount=water_amount, fertilize_interval=fertilize_interval)
+        care_plan = CarePlan(plant_id=plant.id, water_amount=water_amount, fertilize_interval=fertilize_interval, plan_name=plan_name)
         db.session.add(care_plan)
         db.session.commit()
 

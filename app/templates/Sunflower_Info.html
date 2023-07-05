@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='/Info.css') }}"
+/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Additional Information</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup">🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Sunflower</h1>
+    <h2 class="subheader">Origin and Geographic Distribution</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Origin and Geographic Distribution -->
+  The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds.  Sunflowers make excellent cut flowers, and many attract bees, birds, and butterflies.
+Sunflowers are heliotropic, which means that they turn their flowers to follow the movement of the Sun across the sky from east to west, and then return at night to face the east, ready again for the morning sun. Heliotropism happens during the earlier stages before the flower grows heavy with seeds.
+There are tons of varieties of sunflowers available today, so there’s bound to be one that fits your garden. Choose between those with branching stems or single stems, those that produce ample pollen for pollinators or are pollen-free (best for bouquets), those that stay small or tower above the rest of the garden, or those that produce edible seeds! A fairly fast-growing flower for their size, most sunflower varieties mature in only 70 to 95 days. The largest sunflower varieties grow to over 16 feet in height, while smaller varieties have been developed for small spaces and containers and rarely grow larger than a foot tall! The flower heads can reach over 12 inches in diameter within the large seeded varieties.
+    </div>
+    <h2 class="subheader">Growth and Development</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Growth and Development -->
+   While the plant is small, water around the roots, about 3 to 4 inches from the plant. To protect the plant, it may help to put snail or slug bait around the stem.
+Once the plant is established, water deeply though infrequently to encourage deep rooting. Unless the weather is exceptionally wet or dry, water once a week with several gallons of water.
+Feed plants only sparingly; overfertilization can cause stems to break in the fall. You can add diluted fertilizer into the water, though avoid getting the fertilizer near the plant’s base; it may help to build a moat in a circle around the plant about 18 inches out.
+Tall species and cultivars require support. Bamboo stakes are a good choice for any plant that has a strong, single stem and needs support for a short period of time.
+    </div>
+    <h2 class="subheader">Propagation and Planting</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Propagation and Planting -->
+         First and foremost, find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, warm summers to flower well. Shelter from strong winds—for example, along a fence or near a building—helps as they mature. Larger varieties may become top-heavy, and a strong wind can topple them.
+Choose a location with well-draining soil. The planting spot shouldn’t pool with water after it rains. Otherwise, sunflowers aren’t too picky about soil, but for the best results, the soil shouldn’t be too compacted. They have long tap roots that need to stretch out; in preparing a bed, dig down or till 2 feet in depth and about 3 feet across. They’re not too fussy when it comes to soil pH either. Sunflowers thrive in slightly acidic to somewhat alkaline soil (pH 6.0 to 7.5).
+Sunflowers are heavy feeders, however, so the soil needs to be nutrient-rich with organic matter or composted (aged) manure. Or, work in a slow-release granular fertilizer 8 inches deep into your soil.
+If possible, plant sunflowers in a spot that is sheltered from strong winds, perhaps along a fence or near a building. Larger varieties may become top-heavy and a strong wind can be devastating.
+Before choosing a planting site, decide whether or not you want to grow a sunflower tower—a fun project for kids! It’s best to sow sunflower seeds directly into the garden (or outdoor containers) after the danger of spring frost has passed anytime after soils have warmed to at least 50°F (10°C).
+In the northern half of the U.S. and in Canada, this will fall between April and mid-June. In the South, this will probably occur in mid-March or early April. 
+Sunflowers dislike having their roots disturbed, which is why we recommend direct sowing instead of transplanting. Sunflowers should be planted 1 to 1½ inches deep and about 6 inches apart after the soil has thoroughly warmed. If you wish, you can plant multiple seeds and thin them to the strongest contenders when the plants are six inches tall. 
+Give plants plenty of room, especially for low-growing varieties that will branch out. Make rows about 30 inches apart. (For very small varieties, plant closer together.)
+A light application of fertilizer mixed in at planting time will encourage strong root growth to protect them from blowing over in the wind.
+Experiment with plantings staggered over 5 to 6 weeks to keep enjoying continuous blooms.
+If you see birds scratching around for the seeds, spread netting over the planted area until seeds germinate.
+    </div>
+  </div>
+</body>
+</html>
+

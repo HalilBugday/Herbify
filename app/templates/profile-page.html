@@ -55,8 +55,7 @@
                   {% endif %}
 
                   <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
-                  <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
-
+                  <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
                   {% if not current_user.is_authenticated %}
                   <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
 
@@ -91,6 +90,13 @@
           <img src="../static/Add_a_friend.png" alt="Friend Icon" />
           <button type="button" class="friend-button">Add a friend</button>
         </div>
+
+        <a href="{{ url_for('auth.my_plants') }}"
+          ><button type="submit" class="friend-button">
+           My plants
+          </button></a
+        >
+
       </div>
       <div class="profile-photo">
         <!-- Add user uploadable profile photo here -->

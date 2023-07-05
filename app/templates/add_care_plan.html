@@ -3,6 +3,10 @@
 {% block content %}
   <h1>Add Care Plan for {{ plant.name }}</h1>
   <form method="POST" action="">
+		<div>
+      <label for="plan_name">Give a plan name:</label>
+      <input type="text" id="plan_name" name="plan_name">
+    </div>
     <div>
       <label for="light">What kind of light does your plant get daily?</label>
       <select id="light" name="light">
@@ -23,11 +27,11 @@
     </div>
     <div>
       <label for="pot_height">Pick the height of the pot (in cm):</label>
-      <input type="number" id="pot_height" name="pot_height">
+      <input type="number" id="pot_height" name="pot_height" min="0">
     </div>
     <div>
       <label for="pot_diameter">Pick the bottom diameter of the pot (in cm):</label>
-      <input type="number" id="pot_diameter" name="pot_diameter">
+      <input type="number" id="pot_diameter" name="pot_diameter" min="0">
     </div>
     <button type="submit">Add Care Plan</button>
   </form>

@@ -72,6 +72,6 @@ class CarePlan(db.Model):
     plant_id = db.Column(db.Integer, db.ForeignKey('identified_plant.id'), nullable=False)
     water_amount = db.Column(db.Integer, nullable=False)
     fertilize_interval = db.Column(db.String(100), nullable=False)
-
+    plan_name = db.Column(db.String(100), nullable=False)
     def get_id(self):
         return self.id

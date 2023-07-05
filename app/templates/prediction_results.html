@@ -55,7 +55,7 @@
                 {% endif %}
 
                 <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
-                <li><a href="#" title="Rank" class="navbar-item">🏆</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
 
                 {% if not current_user.is_authenticated %}
                 <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
@@ -88,7 +88,12 @@
         />
         
         <p class="upload-photo-text">Prediction Result: {{ predicted_class }} </p>
-        
+
+        <a href="{{ url_for('views.Info') }}"
+          ><button type="submit" class="upload-photo-button">
+            More Information
+          </button></a
+        >
         <a href="{{ url_for('views.classification') }}"
           ><button type="submit" class="upload-photo-button">
             Identify Another Plant

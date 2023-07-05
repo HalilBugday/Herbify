@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='/Info.css') }}"
+/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Additional Information</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup">🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Daisy</h1>
+    <h2 class="subheader">Origin and Geographic Distribution</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Origin and Geographic Distribution -->
+   Daisy flowers are vibrant, cheerful, and easy to grow, making them a proven choice for gardens. Stunning, reliable bloomers, both in the garden and as cut flowers, daisies are hardy, drought-tolerant plants that provide years of gorgeous, classic charm.
+This star-shaped flowering plant can be either annual or a perennial and comes in a variety of colors from bright white to the most electrifying shades of pinks, purples, and yellows. These low-maintenance, iconic garden plants of Summer, will reward you with endless blooms throughout the summer and well into the Fall. 
+    </div>
+    <h2 class="subheader">Growth and Development</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Growth and Development -->
+   Daisies prefer rich fast-draining soil, plenty of water, and ample sunshine. Healthy soil means healthy roots for your daisies, so it’s best to put the time in to amend the soil in your garden before planting. Use a mix of organic matter, including sand, peat moss, and manure compost, to create an ideal growing environment for strong plants with showy blooms. Daisies thrive in soil that is neutral to slightly acidic ideally, with soil measuring 6.0-8.0 on the pH scale. Water daisy plants during dry spells as they send up flower buds as well as during their entire blooming time. If flower stems dry out and droop, they might not fully recover. Water daisies amply at the base of the plant to avoid mold and sun damage to tender petals. Apply an all-purpose organic fertilizer early in the season to promote strong, sturdy growth. Trim off blooms as they fade. Deadheading these blooming beauties encourages repeated flowering. Removing spent flowers also minimizes mold growth on decaying flowers.
+Keep root systems from getting too big and overcrowding each other, which will lead to a decline in the daisy plant over time. As daisy plants get very large, dig them up in clumps every other year in the Fall. Divide the root balls with a slice from a sturdy garden shovel and cut away the thick woody center. Then replant the separated plants with a spacing of 10-12 inches per section.
+Prepare perennial daisies for winter by cushioning mulch loosely around each daisy plant. Use extra taking not to cover the leaves.
+    </div>
+    <h2 class="subheader">Propagation and Planting</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Propagation and Planting -->
+          Daisies, just like their cheerful appearance would suggest, are sun-loving plants. Plant them in full sun for the best and most rewarding blooms all season long. Perennial daisies are easy to grow from seed, root division, or plants purchased from your local nursery. They are also great to separate at the root ball to share your artful bloomers with friends and neighbors.
+Grow from seed: Plant your daisy seeds early Spring. Seeds can be sown directly into the garden or started in covered seed containers indoors. Plant your seeds in the soil about 1/8 inch deep. You can expect them to germinate in 10-20 days. Daisy plants will bloom the following year after one season’s growth.
+Planting rooted plants: Dig a hole that is twice the diameter of the pot in came in. Then place the plant in the hole, using care to ensure that the top of the root ball is flush with the surface of the soil. Loosely fill in the rest of the hole
+    </div>
+  </div>
+</body>
+</html>
+

@@ -13,6 +13,7 @@ views = Blueprint('views', __name__)
 def classification():
     return render_template('identification-page.html')
 
+
 @views.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
@@ -39,17 +40,20 @@ def predict():
             # Tahmin yap
             prediction = model.predict(img_array)
             predicted_class = class_names[np.argmax(prediction)]
-
+            global x
             if predicted_class == 'Daisy!':
                     photo = 'static/daisy.jpeg'
+                    x=1
             elif predicted_class == 'Dandelion!':
                     photo = 'static/dandelion.jpeg'
+                    x=2
             elif predicted_class == 'Rose!':
                     photo = 'static/rose.jpeg'
+                    x=3
             elif predicted_class == 'Sunflower!':
                     photo = 'static/sunflower.jpeg'
-
-
+                    x=4
+            
             #for achievements
             if current_user.is_authenticated:
                 user = User.query.get(current_user.id)
@@ -66,3 +70,14 @@ def predict():
 
 
             return render_template('prediction_results.html', photo=photo, predicted_class=predicted_class)
+
+@views.route('/Info')
+def Info():
+    if x == 1:
+        return render_template('Daisy_Info.html')
+    elif x == 2:
+        return render_template('Dandelion_Info.html')
+    elif x == 3:
+        return render_template('Rose_Info.html')
+    elif x == 4:
+        return render_template('Sunflower_Info.html')

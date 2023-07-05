@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='/Info.css') }}"
+/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Additional Information</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup">🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Rose</h1>
+    <h2 class="subheader">Origin and Geographic Distribution</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Origin and Geographic Distribution -->
+      June’s birth flower is the rose! And it’s not surprising that rose shrubs are often at their very best this month, but many types will flower from late May through early fall. 
+For thousands of years, the rose has been a symbol of beauty, love, and passion, and it remains so today. Growing roses can be demanding or carefree. Roses are shrubs of many forms, available for every bloom season and in a range of colors. Knowing rose classifications helps in understanding their growth habit, climate preferences, and general requirements.
+      Rose bushes come in a variety of forms, from climbing roses to miniature rose plants. One way to group roses into classes is according to their date of introduction: Old roses—also called “old-fashioned roses” and “heirloom roses”—are those introduced prior to 1867. These are the lush, invariably fragrant roses found in old masters’ paintings. Hundreds of old rose varieties—whose hardiness varies—provide choices for warm and mild climates.
+Modern hybrid roses, introduced after 1867, are sturdy, long-blooming, extremely hardy and disease-resistant, and bred for color, shape, size, and fragrance. The hybrid tea roses, with one large flower on a long cutting stem, are one of the most popular hybrids.
+Species, or wild roses, are those that have been growing wild for many thousands of years. These wild roses have been adapted to modern gardens and usually bloom from spring to early summer. Most species of roses have single blossoms. 
+    </div>
+    <h2 class="subheader">Growth and Development</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Growth and Development -->
+           Also, consider which plants make good companions for roses. Pretty purple catmint (Nepeta) offsets roses beautifully (especially pink) and hides roses’ leggy bottoms, so the focus is on their lush green leaves and blooms at the top. Lavender (Lavandula), lady’s mantle (Alchemilla) , and tall growing pinks (Dianthus) do the same, as well as help suppress weeds. Plant other plants at least one foot away from your roses to avoid crowding; roses need lots of open-air circulation to avoid disease.
+    </div>
+    <h2 class="subheader">Propagation and Planting</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Propagation and Planting -->
+            If you order bare-root roses from a mail-order company, order with your planting date in mind. Bare-root roses should be planted soon after they arrive.
+In North America, roses are usually shipped in the early spring when plants are fully dormant, well before they have leafed out. They’ll look like a bundle of sticks on arrival. Note that they are not dead—simply dormant! Check that the packing material is moist and keep them in a cool dark place until ready to plant. In colder regions, plant bare-root roses as soon as the soil is workable in the spring.In warmer regions, you may plant bare-root roses in the early spring or in late fall, as long as the plant is dormant. If you are buying potted roses, it’s best to plant them by late spring for best results. However, you may plant them almost any time during the growing season—just be sure to keep them well-watered, especially during summer! 
+    </div>
+  </div>
+</body>
+</html>
+
