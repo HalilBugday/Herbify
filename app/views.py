@@ -1,11 +1,11 @@
+from datetime import datetime
 from flask import Blueprint, render_template, request, current_app
+from flask_login import current_user
 from keras.utils.image_utils import load_img, img_to_array
 from keras.models import load_model
-from flask_login import current_user
-from .models import User ,db
-
 import numpy as np
 import os
+from .models import User , db , IdentifiedPlant
 
 views = Blueprint('views', __name__)
 
@@ -13,7 +13,7 @@ views = Blueprint('views', __name__)
 def classification():
     return render_template('identification-page.html')
 
-@views.route('/predict', methods=['POST', 'GET'])
+@views.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
         # Gelen görüntüyü kaydet
@@ -32,33 +32,37 @@ def predict():
             model_path = os.path.join(current_app.root_path, 'modelVersion1.h5')
             model = load_model(model_path)
 
-            class_names = ['daisy-papatya.', 'dandelion-karahindiba.', 'rose-gül.', 'sunflower-ayçiçeği.']
-            
+            class_names = ['Daisy!', 'Dandelion!', 'Rose!', 'Sunflower!']
 
-            
+
 
             # Tahmin yap
             prediction = model.predict(img_array)
             predicted_class = class_names[np.argmax(prediction)]
 
-            if predicted_class == 'daisy-papatya.':
+            if predicted_class == 'Daisy!':
                     photo = 'static/daisy.jpeg'
-            elif predicted_class == 'dandelion-karahindiba.':
+            elif predicted_class == 'Dandelion!':
                     photo = 'static/dandelion.jpeg'
-            elif predicted_class == 'rose-gül.':
+            elif predicted_class == 'Rose!':
                     photo = 'static/rose.jpeg'
-            elif predicted_class == 'sunflower-ayçiçeği.':
+            elif predicted_class == 'Sunflower!':
                     photo = 'static/sunflower.jpeg'
 
 
-
-            print(predicted_class)
-
-           #for achievements
+            #for achievements
             if current_user.is_authenticated:
                 user = User.query.get(current_user.id)
                 if user:
                     user.identification_count += 1
                     db.session.commit()
+             # Store identified plant in the database
+            if current_user.is_authenticated:
+                user = User.query.get(current_user.id)
+                if user:
+                    identified_plant = IdentifiedPlant(user_id=user.id, plant_name=predicted_class, date_identified=datetime.utcnow())
+                    db.session.add(identified_plant)
+                    db.session.commit()
+
 
             return render_template('prediction_results.html', photo=photo, predicted_class=predicted_class)

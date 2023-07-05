@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>My Identified Plants</h1>
+    <div>
+        {% if user_plants %}
+            <ul>
+                {% for plant in user_plants %}
+                    <li>
+                        <a href="{{ url_for('auth.my_plant_details', plant_id=plant.id) }}">{{ plant.plant_name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No identified plants found.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required , current_user
-from .models import User ,  groups_table , Achievements , Post
+from .models import User ,  groups_table , Achievements , Post , IdentifiedPlant , CarePlan
 from . import db
 
 auth = Blueprint('auth', __name__)
@@ -84,7 +84,7 @@ def create_group():
         return redirect(url_for('main.profile'))
     
     
-    return render_template('Groups-page.html')
+    return render_template('Groups-create.html')
 
 @auth.route('/groups/<int:group_id>')
 @login_required
@@ -119,7 +119,70 @@ def create_post(group_id):
     return redirect(url_for('auth.group_profile', group_id=group_id))
 
 
+@auth.route('/profile/myplants')
+@login_required
+def my_plants():
+    user_plants = IdentifiedPlant.query.filter_by(user_id=current_user.id).all()
+    return render_template('my_plants.html', user_plants=user_plants)
 
+@auth.route('/profile/myplants/<int:plant_id>')
+@login_required
+def my_plant_details(plant_id):
+    plant = IdentifiedPlant.query.get(plant_id)
+    
+    if not plant or plant.user_id != current_user.id:
+        #flash('Plant not found.', 'error')
+        return redirect(url_for('auth.my_plants'))
+    
+    return render_template('my_plant_details.html', plant=plant)
+
+
+@auth.route('/profile/myplants/<int:plant_id>/add-care-plan', methods=['GET', 'POST'])
+@login_required
+def add_care_plan(plant_id):
+    plant = IdentifiedPlant.query.get(plant_id)
+
+    if not plant or plant.user_id != current_user.id:
+        flash('Plant not found.')
+        return redirect(url_for('auth.my_plants'))
+
+    if request.method == 'POST':
+        light = request.form.get('light')
+        last_watered = request.form.get('last_watered')
+        pot_height = float(request.form.get('pot_height'))
+        pot_diameter = float(request.form.get('pot_diameter'))
+
+        water_amount = 0
+        fertilize_interval = ""
+
+        # Calculate water amount based on light type
+        if light == 'option1':
+            water_amount = 30
+        elif light == 'option2':
+            water_amount = 20
+        elif light == 'option3':
+            water_amount = 10
+        elif light == 'option4':
+            water_amount = 5
+
+        # Calculate fertilize interval based on pot size
+        pot_size = pot_height * pot_diameter
+        if pot_size > 100:
+            fertilize_interval = "every month"
+        elif 50 <= pot_size <= 100:
+            fertilize_interval = "every week"
+        elif pot_size < 50:
+            fertilize_interval = "every 2 days"
+
+        # Create and store the care plan in the database
+        care_plan = CarePlan(plant_id=plant.id, water_amount=water_amount, fertilize_interval=fertilize_interval)
+        db.session.add(care_plan)
+        db.session.commit()
+
+        flash('Care plan added successfully.', 'success')
+        return redirect(url_for('auth.my_plant_details', plant_id=plant_id))
+
+    return render_template('add_care_plan.html', plant=plant)
 
 
 

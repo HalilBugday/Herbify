@@ -24,6 +24,7 @@ class User(UserMixin, db.Model):
     # Define the many-to-many relationship with achievements
     #achievements = db.relationship('Achievements', secondary='user_achievements', backref=db.backref('users', lazy='dynamic'))
     achievements = db.relationship('Achievements', secondary=user_achievements, backref=db.backref('users', lazy='dynamic'), lazy='dynamic')
+    identified_plants = db.relationship('IdentifiedPlant', backref='user', lazy='dynamic')
     def get_id(self):
         return (self.id)
 
@@ -54,3 +55,23 @@ class Post(db.Model):
     group_id = db.Column(db.Integer, db.ForeignKey('groups_table.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', backref=db.backref('posts', lazy='dynamic'))
+
+
+
+class IdentifiedPlant(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    plant_name = db.Column(db.String(100), nullable=False)
+    date_identified = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    care_plans = db.relationship('CarePlan', backref='identified_plant', lazy='dynamic')
+    def get_id(self):
+        return self.id
+    
+class CarePlan(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    plant_id = db.Column(db.Integer, db.ForeignKey('identified_plant.id'), nullable=False)
+    water_amount = db.Column(db.Integer, nullable=False)
+    fertilize_interval = db.Column(db.String(100), nullable=False)
+
+    def get_id(self):
+        return self.id
