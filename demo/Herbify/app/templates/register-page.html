@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/register-page.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='/redirection_for_login-page.js') }}"
+      type="module"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Herbify-Register</title>
+  </head>
+  <body>
+    <script>
+      document
+        .querySelector('a[href="login-page.html"]')
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "login-page.html";
+        });
+
+      document
+        .querySelector('a[href="identification-page.html"]')
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "identification-page.html";
+        });
+    </script>
+    <nav class="navbar">
+      <ul>
+      <div class="container">
+
+          <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+
+                  <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                  <!-- <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li> -->
+
+                  <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                  {% if current_user.is_authenticated %}
+                  <li>
+                    <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                  {% endif %}
+
+                  <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                  <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                  {% if not current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                  <li class="active"><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup">🔓</a></li>
+
+
+                  {% endif %}
+                  {% if current_user.is_authenticated %}
+                  <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                  {% endif %}
+
+
+              </div>
+          </div>
+      </div>
+      <ul>
+  </nav>
+    <div class="register-page-container">
+      <h1 class="register-page-heading">Register</h1>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div style="color: red">{{ messages[0] }}</div>
+      {% endif %} {% endwith %}
+      <form
+        class="register-page-form"
+        name="registration_form"
+        method="POST"
+        action="/signup"
+      >
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+        />
+
+        <button type="submit" class="register-page-button">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

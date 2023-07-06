@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='/Info.css') }}"
+/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Herbify-Additional Information</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <!-- <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li> -->
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup">🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Dandelion</h1>
+    <h2 class="subheader">Origin and Geographic Distribution</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Origin and Geographic Distribution -->
+  The common dandelion (Taraxacum officinale) is a flowering, broadleaf perennial herb that is part of the Asteraceae family. Dandelion plants produce yellow flowers which open up into a white puffball, or pappus, which is sometimes referred to as the seed head or “blowball.” The fuzzy pappus bits are naturally carried by the wind, which helps it disperse the seeds for reproduction.
+Though you may think of them as weeds, the blossoms, leaves, and roots of dandelions are safe for human consumption. You can harvest the blooms and leaves for salad and sautéed dishes, and the roots can be used to make tea. Plus, dandelions grow quickly in many different types of climates, making them an easy choice to grow in your garden.
+    </div>
+    <h2 class="subheader">Growth and Development</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Growth and Development -->
+  Dandelion plants are prolific growers that are usually planted from seed. For a guide on how to grow dandelions, see the steps below.
+    1. 1. Choose and prepare your planting spot. Dandelion seeds can germinate successfully in a number of different light and soil conditions, but they usually thrive in loose, well-draining, and fertile soil. While a sunny spot may seem like the obvious choice for a spot, try to choose a location with partial shade (or even full shade) if you’re growing dandelions to eat. A shadier spot will slow their growth and prevent the dandelion leaves from getting too bitter in the full sun.
+    2. 2. Sow your seeds. Sow your dandelion seeds directly into your garden soil six weeks before the last frost of the spring. The ground temperature should be at least 50 degrees Fahrenheit. Plant your seeds a quarter of an inch below the soil surface and only lightly cover them with soil to help the sunlight germinate them. If you’re planting your seeds in rows, sow each seed a few inches apart and give the rows about a foot of space in between them.
+    3. 3. Thin your plants. Dandelion plants can grow up to six inches tall in six-inch-wide clusters. Once your dandelions have sprouted a few inches above the ground soil, thin them back to about six inches between each plant to prevent overgrowth.Dandelions are self-pollinators and do not require a lot of upkeep. It usually takes more effort to permanently get rid of them than it does to keep them growing. However, for a few simple steps on maintaining your dandelions, see below.
+    1. 1. Water them regularly. Dandelions like moist soil, so you should water them regularly to keep them hydrated. Make sure that the top two inches of the soil are dry before each round of watering.
+    2. 2. Watch the sunlight. Make sure your dandelions get at least six hours of sun every day when you’re growing them. Once they’re well-established, make sure that they can get plenty of shade to prevent the greens from getting too bitter if you plan to eat them.
+    3. 3. Avoid mulching. Mulching is a popular way to prevent weeds but it blocks out the light that dandelions need for their seeds to germinate. Avoid using mulch on your dandelions. 
+    </div>
+    <h2 class="subheader">Propagation and Planting</h2>
+    <div class="subheader-container">
+      <!-- Explanation for Propagation and Planting -->
+       Dandelions are low-maintenance plants that thrive in USDA hardiness zones 3–9. With a germination rate of about 10 to 14 days, dandelion seeds can be planted from early spring (about six weeks before the last frost) through late summer or early fall. They can grow in soil temperatures as low as 50 degrees Fahrenheit, though they prefer a warmer climate.Dandelions can be harvested throughout the spring growing season. The longer that you leave dandelions to grow, the more bitter they taste. Dandelion blossoms should be picked when the flower heads are a full, bright yellow, which is usually right after they have opened.
+Dandelion roots can be harvested anytime during their growing cycle, but it’s best to pick them between late fall and early spring. Dandelions are self-seeding, so if you wait too long to harvest, their seed heads will emerge and the wind will disperse the seeds to another location.
+    </div>
+  </div>
+</body>
+</html>
+

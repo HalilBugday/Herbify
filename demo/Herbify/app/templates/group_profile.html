@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="group-profile">
+    <div class="group-info">
+      <h1>{{ group.group_name }} Group Profile</h1>
+      <p>Description: {{ group.description }}</p>
+    </div>
+    <div class="create-post">
+      <h2>Create a Post</h2>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flash-messages">
+            {% for message in messages %}
+              <li class="flash-message">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <form action="{{ url_for('auth.create_post', group_id=group.id) }}" method="POST">
+        <textarea name="content" rows="4" cols="50" placeholder="Write your post..."></textarea>
+        <br>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+    </div>
+  </div>
+
+  <h2>Posts</h2>
+  {% if posts %}
+    <ul>
+      {% for post in posts %}
+        <li>
+          <strong>{{ post.user.name }}</strong>: {{ post.content }}
+          <br>
+          <small>{{ post.timestamp }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts available.</p>
+  {% endif %}
+{% endblock %}

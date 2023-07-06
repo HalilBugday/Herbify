@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        /* Plant Details */
+        .plant-details {
+            margin-bottom: 20px;
+        }
+
+        /* Care Plan Section */
+        .care-plan-section {
+            margin-bottom: 40px;
+        }
+
+        .care-plan-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .care-plan-section .btn-primary {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .care-plan-section .care-plans {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .care-plan-section .care-plan-list {
+            color: black;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .care-plan-section .care-plan-item {
+            margin-bottom: 10px;
+        }
+
+        .care-plan-section .water-amount {
+            font-weight: bold;
+        }
+
+        .care-plan-section .no-care-plan {
+            font-style: italic;
+            color: #888;
+        }
+
+    </style>
+    <h1>Plant Details</h1>
+    <div class="plant-details">
+        <h2>{{ plant.plant_name }}</h2>
+        <p>Date Identified: {{ plant.date_identified.strftime('%Y-%m-%d') }}</p>
+        <!-- Display other plant details as per your requirements -->
+    </div>
+
+    <div class="care-plan-section">
+        <h2>Care Plans</h2>
+        <a href="{{ url_for('auth.add_care_plan', plant_id=plant.id) }}" class="btn btn-primary">Add Care Plan</a>
+        <div class="care-plans">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for message in messages %}
+                            <li class="flash-message">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            {% if plant.care_plans %}
+                <ul class="care-plan-list">
+                    {% for care_plan in plant.care_plans %}
+                        <li class="care-plan-item">
+                            <span class="water-amount">{{ care_plan.plan_name }} : {{ care_plan.water_amount }} cl</span> of water every day, fertilize <span class="fertilize-interval">{{ care_plan.fertilize_interval }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-care-plan">No care plans available for this plant.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

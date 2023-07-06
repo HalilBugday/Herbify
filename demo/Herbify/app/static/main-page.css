@@ -1,0 +1,243 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("plant-identification.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: scroll;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+.navbar li.active a {
+  background-color: rgba(0, 128, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar li.active a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-color: #00cc00;
+  border-radius: 50%;
+}
+
+/* Identification Page Styles */
+.identification-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  
+}
+
+.identification-page-heading {
+  text-align: center;
+  color: #00cc00;
+  padding-top: 60px;
+  animation: moveUpDown 1s linear infinite alternate;
+  background: linear-gradient(to right, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+/* Upload Photo Container Styles */
+.upload-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-left: 20px;
+  padding: 0 20px;
+}
+
+.upload-photo-text {
+  color: white;
+  font-size: 28px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  max-width: 80%;
+}
+
+.upload-photo-text2 {
+  color: white;
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-width: 80%;
+}
+
+.upload-photo-button {
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+  background-color: green;
+  color: white;
+}
+
+.upload-photo-button:hover {
+  box-shadow: 0 0 30px green;
+}
+
+.upload-photo-form input[type="file"] {
+  margin-top: 80px;
+  background-color: green;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: white;
+}
+
+.upload-photo-form input[type="file"]:hover {
+  box-shadow: 0 0 30px green;
+}
+
+/* Try Identification Button Styles */
+.try-identification-button {
+  margin-left: 50px;
+  padding-bottom: 50px;
+  background-color: grey;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 200px;
+  height: 100px;
+}
+
+.try-identification-button:hover {
+  background-color: #33cc33;
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+/* Media Queries */
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .upload-photo-container {
+    margin-left: 10px;
+    padding: 0 10px;
+  }
+
+  .upload-photo-text {
+    color : black;
+  }
+
+  .try-identification-button {
+    margin-top: 20px;
+  }
+
+  .identification-page-container {
+    padding: 180px;
+  }
+
+  .identification-page-heading {
+    font-size: 24px;
+    padding-top: 80px;
+  }
+}
+
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .upload-photo-container {
+    margin-left: 30px;
+    padding: 0 30px;
+  }
+
+  .upload-photo-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .try-identification-button {
+    margin-bottom: 80px;
+  }
+
+  .upload-photo-form input[type="file"] {
+    margin-top: 60px;
+    padding: 14px 18px;
+    font-size: 13px;
+  }
+
+  .identification-page-container {
+    max-width: 500px;
+    padding: 70px;
+  }
+
+  .identification-page-heading {
+    font-size: 26px;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-photo-text2 {
+    display: none;
+    margin-bottom: 50px;
+  }
+
+  .upload-photo-text {
+    display: block;
+    font-size: 22px; 
+    max-width: 200%;
+    margin-bottom: 0px;
+  } 
+  
+  .try-identification-button:before {
+    display: block;
+  }
+  
+   .identification-page-heading {
+    font-size: 24px;
+    padding-top: 2px;
+  }
+}

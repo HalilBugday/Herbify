@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename='/Achievements.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <title>Achievements</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+    <div class="container">
+
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+
+                <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <!-- <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li> -->
+
+                <li class="active"><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Achievements" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup" >🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+
+  <div class="register-page-container">
+    <h1 class="register-page-heading">Achievements</h1>
+    <div class="achievements-container">
+      <!-- Add elements from Flask dynamically here -->
+        {% for achievement in all_achievements %}
+                  <div class="achievement">
+                      <img src="{{ url_for('static', filename='ach_images/achiv.jpg') }}" alt="Achievement Image">
+                      <div class="achievement-title">{{ achievement.name }}</div>
+                      &emsp;&emsp;<div class="achievement-description">{{ achievement.description }}</div>
+                      {% if achievement in user_achievements %}
+                          <div class="achievement-achieved">Congratulations! You achieved this!</div>
+                      {% endif %}
+                  </div>
+              {% endfor %}
+    </div>
+    <a href="{{ url_for('auth.scoreboard') }}" class="go-to-scores-button">Go to Scores</a>
+  </div>
+</body>
+</html>
+

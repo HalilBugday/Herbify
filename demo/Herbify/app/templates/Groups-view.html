@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/Groups-view.css') }}"
+    />
+  <title>Herbify - Create Group</title>
+</head>
+<body>
+  <nav class="navbar">
+    
+    <ul>
+    <div class="container">
+     
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          
+            <div class="navbar-end">
+
+                <li ><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
+
+                <!-- <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li> -->
+
+                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="{{ url_for('main.profile') }}" title="Profile">👤</a></li>
+                {% endif %}
+
+                <li class="active"><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+
+                {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
+
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup" >🔓</a></li>
+
+
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}" class="navbar-item" title="logout">🚪</a></li>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    <ul>
+</nav>
+  <div class="login-page-container">
+    <h1 class="login-page-heading">Groups of the Herbify</h1>
+
+    <div class="button-group">
+      <a href="{{ url_for('auth.create_group') }}"
+          ><button type="submit" class="login-page-button">
+            Create Group
+          </button></a
+        >
+    </div>
+    <div class="group-names-container">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages">
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+      {% endwith %}
+        <ul>
+      {% for group in groups %}
+        <li>
+          <a href="{{ url_for('auth.group_profile', group_id=group.id) }}">{{ group.group_name }}</a>
+        </li>
+        <form action="{{ url_for('auth.view_groups') }}" method="POST">
+          <input type="hidden" name="group_id" value="{{ group.id }}">
+          <button type="submit" class="login-page-button">Join Group</button>
+        </form>
+      {% endfor %}
+    </ul>
+      </div>
+    </div>
+  </body>
+  </html>
+  

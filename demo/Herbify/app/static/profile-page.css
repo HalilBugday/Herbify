@@ -1,0 +1,373 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("background_image.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  padding-right: 10px; /* Add padding to the right */
+}
+
+.navbar li.active a {
+  font-weight: bold;
+  background-color: rgba(0, 128, 0, 0.4); /* Green background with 40% transparency */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.navbar li.active a:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-color: #00cc00; /* Green color for the icon */
+  border-radius: 50%;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  color: #00cc00;
+  margin-top: 220px;
+  margin-left: 200px; /* Add margin from the left */
+  position: relative;
+}
+
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add margin from the bottom */
+}
+
+.button-group img {
+  margin-bottom: 10px;
+  width: 200px; /* Adjust the width as needed */
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20px; /* Add margin from the bottom */
+}
+
+.button-group .profile-photo {
+  margin-bottom: 10px;
+}
+
+.button-group .login-page-button,
+.button-group .friend-button {
+  margin-top: 15px; /* Add spacing between image and button */
+  margin-bottom: 20px; /* Add distance between button and image below */
+  display: flex;
+  justify-content: center; /* Align buttons to the center */
+  align-items: center; /* Align buttons to the center */
+}
+
+.button-group .friend-button {
+  justify-content: flex-start; /* Align buttons to the left */
+}
+
+.button-group .friend-button img {
+  margin-right: 10px; /* Add spacing between the image and button text */
+}
+
+.profile-header h1 {
+  margin-right: 10px;
+}
+
+.profile-photo {
+  /* Add styling for profile photo */
+}
+
+.login-page-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.friend-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.friend-button:hover {
+  background-color: #33cc33; /* Apply the same hover effect color as the "Send a message" button */
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+.login-page-button:hover {
+  background-color: #33cc33; /* Apply the same hover effect color as the "Send a message" button */
+  box-shadow: 0 0 5px #8bc34a;
+}
+
+.image-gallery-container {
+  position: absolute;
+  margin-left: 800px;
+  top: 280px; /* Same height as the "Profile" header */
+  width: 800px; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: auto;
+  max-height: 400px; /* Set a max height to enable scrolling */
+}
+
+.image-gallery-container img {
+  display: block;
+  margin-bottom: 10px;
+  width: calc(50% - 10px); /* Two images per row with 10px spacing */
+  height: 150px; /* Set a specific height for the images */
+  object-fit: cover; /* Ensure the image covers the container */
+  margin-right: 10px; /* Add spacing between images */
+}
+
+/* Adjust styles for small mobile devices */
+@media screen and (max-width: 576px) {
+  .navbar {
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .profile-container {
+    margin-left: 20px;
+    margin-top: 100px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Add margin from the bottom */
+  }
+
+  .button-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .button-group img {
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  .button-group .profile-photo {
+    margin-bottom: 0;
+  }
+
+  .button-group .login-page-button,
+  .button-group .friend-button {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  .image-gallery-container {
+    position: static;
+    margin-left: 0;
+    top: 280px; /* Same height as the "Profile" header */
+    width: 100%;
+    padding: 10px;
+    max-height: initial; /* Reset the max height */
+  }
+
+  .image-gallery-container img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Adjust styles for medium-sized devices */
+@media screen and (min-width: 577px) and (max-width: 991px) {
+  .profile-container {
+    margin-left: 20px;
+    margin-top: 100px;
+    padding: 10px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Add margin from the bottom */
+  }
+
+  .button-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .button-group img {
+    width: 200px; /* Adjust the width as needed */
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  .button-group .profile-photo {
+    margin-bottom: 10px;
+  }
+
+  .button-group .login-page-button,
+  .button-group .friend-button {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .image-gallery-container {
+    position: static;
+    margin-left: 0;
+    top: 280px; /* Same height as the "Profile" header */
+    width: 100%;
+    padding: 10px;
+    max-height: initial; /* Reset the max height */
+  }
+
+  .image-gallery-container img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Adjust styles for large devices */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .profile-container {
+    margin-left: 100px;
+    margin-top: 100px;
+    padding: 20px;
+  }
+
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px; /* Add margin from the bottom */
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-group img {
+    width: 200px; /* Adjust the width as needed */
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .button-group .profile-photo {
+    margin-bottom: 10px;
+  }
+
+  .button-group .login-page-button,
+  .button-group .friend-button {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .image-gallery-container {
+    position: static;
+    margin-left: 0;
+    top: 280px; /* Same height as the "Profile" header */
+    width: 100%;
+    padding: 20px;
+    max-height: initial; /* Reset the max height */
+  }
+
+  .image-gallery-container img {
+    width: 50%; /* Two images per row with 10px spacing */
+    height: auto; /* Reset the height */
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Adjust styles for extra-large devices */
+@media screen and (min-width: 1200px) {
+  .profile-container {
+    margin-left: 200px;
+    margin-top: 220px;
+    padding: 20px;
+  }
+
+  .image-gallery-container {
+    position: absolute;
+    margin-left: 800px;
+    top: 280px; /* Same height as the "Profile" header */
+    width: 800px; /* Adjust the width as needed */
+    padding: 20px;
+  }
+}
+
