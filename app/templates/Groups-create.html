@@ -23,7 +23,7 @@
 
                   <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
 
-                  <li><a href="#" title="Discover" class="navbar-item">🌐</a></li>
+                  <!-- <li><a href="#" title="Discover" class="navbar-item">🌐</a></li> -->
 
                   <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
 
@@ -72,7 +72,7 @@
 
         <label for="select-country" class="select-country-label">
           <img
-            src="Select_Country_Image.png"
+            src="{{ url_for('static', filename='Select_Country_Image.png') }}"
             alt="Select Country"
             class="select-country-image"
           />

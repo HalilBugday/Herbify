@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='/Smart_Care.css') }}"
-/>
+  <link  href="{{ url_for('static', filename='/Smart_Care.css') }}" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <title>Smart Care</title>
 </head>
 <body>
-  
   <nav class="navbar">
     <ul>
     <div class="container">
@@ -22,9 +17,9 @@
 
                 <li><a href="{{ url_for('main.index') }}" class="navbar-item" title="main">🏠</a></li>
 
-                <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li>
+                <!-- <li><a href="{{ url_for('main.discover')}}" title="Discover" class="navbar-item">🌐</a></li> -->
 
-                <li><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
+                <li class="active"><a href="{{ url_for('views.classification')}}" class="navbar-item" title="Classification">🔍</a></li>
 
                 {% if current_user.is_authenticated %}
                 <li>
@@ -32,11 +27,12 @@
                 {% endif %}
 
                 <li><a href= "{{ url_for('auth.view_groups') }}" title="Groups" class="navbar-item">👥</a></li>
-                <li><a href="{{ url_for('auth.achievements') }}" title="Rank" class="navbar-item">🏆</a></li>
+                <li><a href="{{ url_for('auth.achievements') }}" title="Achievements" class="navbar-item">🏆</a></li>
+
                 {% if not current_user.is_authenticated %}
                 <li><a href="{{ url_for('auth.login') }}" class="navbar-item" title="login">🔒</a></li>
 
-                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item">🔓</a></li>
+                <li><a href="{{ url_for('auth.signup') }}" class="navbar-item" title="signup" >🔓</a></li>
 
 
                 {% endif %}
@@ -50,40 +46,38 @@
     </div>
     <ul>
 </nav>
-{% block content %}
   <div class="register-page-container">
-    <h1 class="register-page-heading">Add Care Plan for {{ plant.name }}</h1>
+    <h1 class="register-page-heading">Add a Care Plan</h1>
     <form class="register-page-form" name="smart_care_form" method="POST" action="">
-      <label for="email">Give a Plant Name:</label>
-      <input type="text" id="email" name="email" required>
+      <label for="plan_name">Give a Plant Name</label>
+      <input type="text" id="plan_name" name="plan_name" required>
 
-      <label for="light-type">What kind of light does your plant get daily?</label>
-      <select id="light-type" name="light-type" required>
+      <label for="light">What kind of light does your plant get daily?</label>
+      <select id="light" name="light" required>
         <option value="" disabled selected>Select type</option>
-        <option value="Direct sunlight">Low light</option>
-        <option value="Indirect sunlight">Medium light</option>
-        <option value="Artificial light">Bright indirect light</option>
-        <option value="No light">Bright direct light</option>
+        <option value="option4">Low light</option>
+        <option value="option3">Medium light</option>
+        <option value="option2">Bright indirect light</option>
+        <option value="option1">Bright direct light</option>
       </select>
       
-      <label for="water-time">When did you last water your plant?</label>
-      <select id="water-time" name="water-time" required>
+      <label for="last_watered">When did you last water your plant?</label>
+      <select id="last_watered" name="last_watered" required>
         <option value="" disabled selected>Select watering time</option>
-        <option value="Today">Today</option>
-        <option value="Yesterday">Yesterday</option>
-        <option value="A week ago">A week ago</option>
-        <option value="Over a month ago">Over a month ago</option>
+        <option value="option1">Today</option>
+        <option value="option2">Yesterday</option>
+        <option value="option3">A week ago</option>
+        <option value="option4">Over a month ago</option>
       </select>
 
-      <label for="password">Pick the height of the pot (in cm)</label>
-      <input type="text" id="pot-height" name="pot-height" required>
+      <label for="pot_height">Pick the height of the pot (in cm)</label>
+      <input type="number" id="pot_height" name="pot_height" required min="0">
 
-      <label for="pot-diameter">Pick the bottom diameter of the pot (in cm)</label>
-      <input type="text" id="pot-diameter" name="pot-diameter" required>
+      <label for="pot_diameter">Pick the bottom diameter of the pot (in cm)</label>
+      <input type="number" id="pot_diameter" name="pot_diameter" required min="0">
 
       <button type="submit" class="register-page-button">Add Care plan</button>
     </form>
-    {% endblock %}
   </div>
 </body>
 </html>

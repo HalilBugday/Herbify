@@ -65,16 +65,14 @@ def view_groups():
 @login_required
 def create_group():
     if request.method == 'POST':
-        
+
         group_name = request.form['group-name']
         description = request.form['group-description']
         country = request.form['select-country']
-        
-        
+
         new_group = groups_table(group_name=group_name, description=description , country = country)
         new_group.users.append(current_user)
-        
-        
+
         db.session.add(new_group)
         db.session.commit()
         
@@ -184,7 +182,7 @@ def add_care_plan(plant_id):
         flash('Care plan added successfully.', 'success')
         return redirect(url_for('auth.my_plant_details', plant_id=plant_id))
 
-    return render_template('add_care_plan.html', plant=plant)
+    return render_template('Smart_Care.html', plant=plant)
 
 
 
@@ -236,7 +234,7 @@ def signup_post():
        flash("Confirmation password does not mactch with password.")
        return redirect(url_for('auth.register'))
     
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, name=name, password=generate_password_hash(password))
 
     db.session.add(new_user)
     db.session.commit()

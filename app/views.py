@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Blueprint, render_template, request, current_app
 from flask_login import current_user
-from keras.utils.image_utils import load_img, img_to_array
+from keras.preprocessing.image import load_img, img_to_array
 from keras.models import load_model
 import numpy as np
 import os
